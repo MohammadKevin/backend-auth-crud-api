@@ -1,62 +1,55 @@
-🔐 Backend Auth & CRUD API
+# Backend Auth & CRUD API
 
-Backend REST API menggunakan Node.js, Express, Prisma, dan JWT
-dengan fitur Authentication, Authorization (Role Admin/User), dan CRUD Product.
+Backend REST API menggunakan **Node.js, Express, Prisma, dan JWT**  
+dengan fitur **Authentication, Authorization (Role Admin/User), dan CRUD Product**.
 
-Project ini dibuat sebagai portfolio backend developer sekaligus contoh implementasi API yang aman, terstruktur, dan scalable.
+Project ini dibuat sebagai **portfolio backend developer** dan contoh implementasi **API yang aman & scalable**.
 
-🚀 Tech Stack
+---
 
-Node.js
+## 🚀 Tech Stack
+- Node.js
+- Express.js
+- Prisma ORM
+- MySQL
+- JSON Web Token (JWT)
+- bcrypt
+- dotenv
+- Nodemon
 
-Express.js
+---
 
-Prisma ORM
+## ✨ Features
 
-MySQL
+### 🔐 Authentication
+- Register user
+- Login user
+- Password hashing menggunakan bcrypt
+- JWT-based authentication
 
-JSON Web Token (JWT)
+### 🛂 Authorization
+- Role-based access control
+- Admin-only access untuk create, update, dan delete product
 
-bcrypt
+### 📦 Product Management (CRUD)
+- Get all products (public)
+- Get product by ID (public)
+- Create product (Admin only)
+- Update product (Admin only)
+- Delete product (Admin only)
 
-dotenv
+---
 
-nodemon
+## 🧑‍ Roles
+| Role  | Permission |
+|------|------------|
+| USER | View products |
+| ADMIN | Create, Update, Delete products |
 
-✨ Features
-🔐 Authentication
+---
 
-Register user
-
-Login user
-
-Password hashing menggunakan bcrypt
-
-JWT-based authentication
-
-🛂 Authorization
-
-Role-based access control
-
-Admin-only access untuk create, update, dan delete product
-
-📦 Product Management (CRUD)
-
-Get all products (Public)
-
-Get product by ID (Public)
-
-Create product (Admin only)
-
-Update product (Admin only)
-
-Delete product (Admin only)
-
-🧑‍ Roles & Permissions
-Role	Permissions
-USER	View products
-ADMIN	Create, Update, Delete products
-📂 Project Structure
+## 📂 Project Structure
+```bash
 backend-auth-crud-api
 ├── prisma
 │   └── schema.prisma
@@ -76,94 +69,120 @@ backend-auth-crud-api
 ├── .env
 ├── package.json
 └── README.md
+```
 
-⚙️ Installation & Setup
-1️⃣ Clone Repository
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone Repository
+```bash
 git clone https://github.com/MohammadKevin/backend-auth-crud-api.git
 cd backend-auth-crud-api
+```
 
-2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies
+```bash
 npm install
+```
 
-3️⃣ Environment Variables
+### 3️⃣ Environment Variables
+Buat file `.env`
 
-Buat file .env di root project:
-
+```env
 DATABASE_URL="mysql://user:password@localhost:3306/db_name"
 JWT_SECRET="your_jwt_secret"
 PORT=3000
+```
 
-4️⃣ Database Migration
+### 4️⃣ Database Migration
+```bash
 npx prisma migrate dev
+```
 
-5️⃣ Run Server
+### 5️⃣ Run Server
+```bash
 npm run dev
-
+```
 
 Server akan berjalan di:
-
+```
 http://localhost:3000
+```
 
-📌 API Endpoints
-🔐 Authentication
-Method	Endpoint	Description
-POST	/api/auth/register	Register user
-POST	/api/auth/login	Login & get JWT token
-📦 Product
-Method	Endpoint	Access
-GET	/api/products	Public
-GET	/api/products/:id	Public
-POST	/api/products	Admin
-PUT	/api/products/:id	Admin
-DELETE	/api/products/:id	Admin
-🔑 Authorization Header
+---
 
-Untuk endpoint yang dilindungi (protected route):
+## 📌 API Endpoints
 
+### 🔐 Auth
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | `/api/auth/register` | Register user |
+| POST | `/api/auth/login` | Login & get token |
+
+### 📦 Product
+| Method | Endpoint | Access |
+|------|---------|--------|
+| GET | `/api/products` | Public |
+| GET | `/api/products/:id` | Public |
+| POST | `/api/products` | Admin |
+| PUT | `/api/products/:id` | Admin |
+| DELETE | `/api/products/:id` | Admin |
+
+---
+
+## 🔑 Authorization Header
+Untuk endpoint yang membutuhkan login:
+
+```http
 Authorization: Bearer <JWT_TOKEN>
+```
 
-🧪 Example Request (Create Product)
+---
+
+## 🧪 Example Request (Create Product)
+```json
 {
   "name": "Keyboard Mechanical",
   "description": "RGB Mechanical Keyboard",
   "price": 350000,
   "stock": 10
 }
+```
 
-🔒 Middleware
+---
 
-authMiddleware → Validasi JWT
+## 🔒 Middleware
+- `authMiddleware` → Validasi JWT
+- `isAdmin` → Validasi role admin
 
-isAdmin → Cek role admin
+---
 
-🛡 Security
+## 🛡 Security
+- Password di-hash menggunakan bcrypt
+- Token memiliki waktu expired
+- Role-based access control
 
-Password di-hash menggunakan bcrypt
+---
 
-JWT memiliki expired time
+## 📈 Future Improvements
+- Pagination & search product
+- Refresh token
+- Upload image product
+- Swagger API documentation
+- Deployment (Railway / Render)
 
-Role-based access control
+---
 
-📈 Future Improvements
-
-Pagination & search product
-
-Refresh token
-
-Upload image product
-
-Swagger / OpenAPI documentation
-
-Deployment (Railway / Render)
-
-👨‍💻 Author
-
-Mohammad Kevin
+## 👨‍💻 Author
+**Mohammad Kevin**  
 Backend Developer (Node.js, Express, Prisma)
 
-GitHub:
+GitHub:  
 👉 https://github.com/MohammadKevin
 
-⭐ Notes
+---
 
-Project ini dibuat untuk belajar, latihan, dan portfolio backend developer.
+## ⭐ Notes
+Project ini dibuat untuk **belajar dan portfolio**.  
+Bebas dikembangkan lebih lanjut.
