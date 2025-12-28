@@ -1,55 +1,62 @@
-# Backend Auth & CRUD API
+🔐 Backend Auth & CRUD API
 
-Backend REST API menggunakan **Node.js, Express, Prisma, dan JWT**  
-dengan fitur **Authentication, Authorization (Role Admin/User), dan CRUD Product**.
+Backend REST API menggunakan Node.js, Express, Prisma, dan JWT
+dengan fitur Authentication, Authorization (Role Admin/User), dan CRUD Product.
 
-Project ini dibuat sebagai **portfolio backend developer** dan contoh implementasi **API aman & scalable**.
+Project ini dibuat sebagai portfolio backend developer sekaligus contoh implementasi API yang aman, terstruktur, dan scalable.
 
----
+🚀 Tech Stack
 
-## 🚀 Tech Stack
-- Node.js
-- Express.js
-- Prisma ORM
-- MySQL
-- JSON Web Token (JWT)
-- bcrypt
-- dotenv
-- Nodemon
+Node.js
 
----
+Express.js
 
-## ✨ Features
+Prisma ORM
 
-### 🔐 Authentication
-- Register user
-- Login user
-- Password hashing (bcrypt)
-- JWT-based authentication
+MySQL
 
-### 🛂 Authorization
-- Role-based access control
-- Admin-only access untuk create/update/delete product
+JSON Web Token (JWT)
 
-### 📦 Product Management (CRUD)
-- Get all products (public)
-- Get product by ID (public)
-- Create product (Admin only)
-- Update product (Admin only)
-- Delete product (Admin only)
+bcrypt
 
----
+dotenv
 
-## 🧑‍ Roles
-| Role  | Permission |
-|------|------------|
-| USER | View products |
-| ADMIN | Create, Update, Delete products |
+nodemon
 
----
+✨ Features
+🔐 Authentication
 
-## 📂 Project Structure
-```bash
+Register user
+
+Login user
+
+Password hashing menggunakan bcrypt
+
+JWT-based authentication
+
+🛂 Authorization
+
+Role-based access control
+
+Admin-only access untuk create, update, dan delete product
+
+📦 Product Management (CRUD)
+
+Get all products (Public)
+
+Get product by ID (Public)
+
+Create product (Admin only)
+
+Update product (Admin only)
+
+Delete product (Admin only)
+
+🧑‍ Roles & Permissions
+Role	Permissions
+USER	View products
+ADMIN	Create, Update, Delete products
+📂 Project Structure
 backend-auth-crud-api
 ├── prisma
 │   └── schema.prisma
@@ -70,7 +77,7 @@ backend-auth-crud-api
 ├── package.json
 └── README.md
 
-##⚙️ Installation & Setup
+⚙️ Installation & Setup
 1️⃣ Clone Repository
 git clone https://github.com/MohammadKevin/backend-auth-crud-api.git
 cd backend-auth-crud-api
@@ -80,7 +87,7 @@ npm install
 
 3️⃣ Environment Variables
 
-Buat file .env
+Buat file .env di root project:
 
 DATABASE_URL="mysql://user:password@localhost:3306/db_name"
 JWT_SECRET="your_jwt_secret"
@@ -98,10 +105,10 @@ Server akan berjalan di:
 http://localhost:3000
 
 📌 API Endpoints
-🔐 Auth
+🔐 Authentication
 Method	Endpoint	Description
 POST	/api/auth/register	Register user
-POST	/api/auth/login	Login & get token
+POST	/api/auth/login	Login & get JWT token
 📦 Product
 Method	Endpoint	Access
 GET	/api/products	Public
@@ -111,7 +118,7 @@ PUT	/api/products/:id	Admin
 DELETE	/api/products/:id	Admin
 🔑 Authorization Header
 
-Untuk endpoint protected:
+Untuk endpoint yang dilindungi (protected route):
 
 Authorization: Bearer <JWT_TOKEN>
 
@@ -133,7 +140,7 @@ isAdmin → Cek role admin
 
 Password di-hash menggunakan bcrypt
 
-Token expired otomatis
+JWT memiliki expired time
 
 Role-based access control
 
@@ -145,7 +152,7 @@ Refresh token
 
 Upload image product
 
-Swagger API documentation
+Swagger / OpenAPI documentation
 
 Deployment (Railway / Render)
 
@@ -159,4 +166,4 @@ GitHub:
 
 ⭐ Notes
 
-Project ini dibuat untuk belajar dan portfolio.
+Project ini dibuat untuk belajar, latihan, dan portfolio backend developer.
